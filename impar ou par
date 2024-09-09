@@ -1,3 +1,108 @@
+1. CALCULO DA MEDIA DE NOTAS
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Média de Notas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cálculo de Média de Notas</h1>
+        <form id="form">
+            <label for="nota1">Nota 1:</label>
+            <input type="number" id="nota1" placeholder="Digite a primeira nota" required><br><br>
+
+            <label for="nota2">Nota 2:</label>
+            <input type="number" id="nota2" placeholder="Digite a segunda nota" required><br><br>
+
+            <label for="nota3">Nota 3:</label>
+            <input type="number" id="nota3" placeholder="Digite a terceira nota" required><br><br>
+
+            <label for="nota4">Nota 4:</label>
+            <input type="number" id="nota4" placeholder="Digite a quarta nota" required><br><br>
+
+            <button type="button" onclick="calcularMedia()">Calcular Média</button>
+        </form>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function calcularMedia() {
+            const nota1 = parseFloat(document.getElementById("nota1").value);
+            const nota2 = parseFloat(document.getElementById("nota2").value);
+            const nota3 = parseFloat(document.getElementById("nota3").value);
+            const nota4 = parseFloat(document.getElementById("nota4").value);
+
+            if (!isNaN(nota1) && !isNaN(nota2) && !isNaN(nota3) && !isNaN(nota4)) {
+                const media = (nota1 + nota2 + nota3 + nota4) / 4;
+                document.getElementById("resultado").innerHTML = `A média das notas é: ${media.toFixed(2)}`;
+            } else {
+                document.getElementById("resultado").innerHTML = "Por favor, insira todas as notas.";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+2. VERIFICANDO SE O NUMERO E PAR OU IMPAR
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -72,6 +177,235 @@
         } else {
             resultado.textContent = `${numero} é Ímpar`;
         }
+    }
+</script>
+
+</body>
+</html>
+
+
+3. CALCULADORA SIMPLES
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+        }
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .calculator input {
+            width: 100%;
+            height: 50px;
+            text-align: right;
+            font-size: 24px;
+            margin-bottom: 10px;
+            border: none;
+            background-color: #e6e6e6;
+            border-radius: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .calculator button {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            font-size: 24px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .calculator button:hover {
+            background-color: #0056b3;
+        }
+        .button-row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button-row button {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <input type="text" id="display" disabled>
+    <div class="button-row">
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="appendToDisplay('/')">/</button>
+        <button onclick="appendToDisplay('*')">*</button>
+        <button onclick="backspace()">←</button>
+    </div>
+    <div class="button-row">
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('-')">-</button>
+    </div>
+    <div class="button-row">
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('+')">+</button>
+    </div>
+    <div class="button-row">
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="calculate()">=</button>
+    </div>
+    <div class="button-row">
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+    </div>
+</div>
+
+<script>
+    function appendToDisplay(value) {
+        document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+        document.getElementById('display').value = '';
+    }
+
+    function backspace() {
+        const display = document.getElementById('display');
+        display.value = display.value.slice(0, -1);
+    }
+
+    function calculate() {
+        const display = document.getElementById('display');
+        try {
+            display.value = eval(display.value);
+        } catch (error) {
+            display.value = 'Erro';
+        }
+    }
+</script>
+
+</body>
+</html>
+
+
+4.CONTAGEM REGRESSIVA
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Regressiva</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .timer {
+            font-size: 48px;
+            color: #007bff;
+            margin: 20px 0;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 80px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Contagem Regressiva</h1>
+    <div class="timer" id="timer">00:00</div>
+    <input type="number" id="minutos" placeholder="Min" min="0">
+    <input type="number" id="segundos" placeholder="Seg" min="0" max="59">
+    <br><br>
+    <button onclick="iniciarContagem()">Iniciar</button>
+</div>
+
+<script>
+    let intervalo;
+
+    function iniciarContagem() {
+        clearInterval(intervalo); // Limpa qualquer contagem anterior
+        const minutos = parseInt(document.getElementById('minutos').value) || 0;
+        const segundos = parseInt(document.getElementById('segundos').value) || 0;
+        let totalSegundos = minutos * 60 + segundos;
+
+        if (totalSegundos <= 0) {
+            alert('Por favor, insira um tempo válido.');
+            return;
+        }
+
+        atualizarTimer(totalSegundos);
+
+        intervalo = setInterval(() => {
+            totalSegundos--;
+            if (totalSegundos < 0) {
+                clearInterval(intervalo);
+                document.getElementById('timer').textContent = "Tempo esgotado!";
+                return;
+            }
+            atualizarTimer(totalSegundos);
+        }, 1000);
+    }
+
+    function atualizarTimer(totalSegundos) {
+        const minutosRestantes = Math.floor(totalSegundos / 60);
+        const segundosRestantes = totalSegundos % 60;
+        document.getElementById('timer').textContent =
+            `${String(minutosRestantes).padStart(2, '0')}:${String(segundosRestantes).padStart(2, '0')}`;
     }
 </script>
 
